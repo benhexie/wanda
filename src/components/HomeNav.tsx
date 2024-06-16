@@ -39,21 +39,21 @@ const NavItem = ({
 const HomeNav = () => {
   return (
     <div className="w-full gap-4 flex flex-col sticky top-0 z-10 bg-white h-48 pt-8">
-      <div className="flex flex-row w-full items-center gap-4">
-        <div className="w-24 flex justify-start">
+      <div className="flex flex-row flex-wrap w-full items-center gap-4">
+        <div className="w-24 flex justify-start mt-4 sm:order-1">
           <Logo />
         </div>
-        <div className="flex-1 flex justify-center">
+        <div className="flex justify-center flex-[100%] sm:flex-1 order-3 sm:order-2">
           <Search />
         </div>
-        <div className="w-24 flex justify-end">
-          <button>
+        <div className="w-24 flex justify-end ml-auto order-2 sm:order-3">
+          <button className="mt-4">
             <GoBell className="text-xl text-gray-500" />
           </button>
         </div>
       </div>
       <div className="w-full flex justify-center">
-        <div className="w-full max-w-lg flex justify-between gap-4">
+        <div className="w-full max-w-lg justify-between gap-4 hidden sm:flex">
           <NavItem text="Explore" Icon={AiOutlineCompass} to="/explore" />
           <NavItem text="Trips" Icon={GrLocation} to="/trips" />
           <NavItem text="Crew" Icon={HiOutlineUserGroup} to="/crew" />

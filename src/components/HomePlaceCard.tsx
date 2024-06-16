@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { ColorType } from "../types";
 
 const TagItem = ({ tag, color }: { tag: string; color: ColorType }) => {
@@ -67,12 +68,12 @@ const HomePlaceCard = ({
   }[];
 }) => {
   return (
-    <div className="flex flex-col gap-4 min-w-48 max-w-64">
+    <Link to={""} className="flex flex-col gap-4">
       <div className="rounded-xl overflow-hidden w-full">
         <img
           src={image}
           alt={`Image of ${title}`}
-          className="w-full h-40 object-cover"
+          className="w-full h-56 object-cover"
         />
       </div>
       <p className="text-base font-semibold">{title}</p>
@@ -87,7 +88,7 @@ const HomePlaceCard = ({
           <TagItem key={index} tag={tag.name} color={tag.color} />
         ))}
       </div>
-    </div>
+    </Link>
   );
 };
 

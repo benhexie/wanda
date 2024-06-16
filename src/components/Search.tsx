@@ -40,7 +40,7 @@ const Search = () => {
   }, [pathname, search]);
 
   return (
-    <div className="relative w-full max-w-xl flex flex-col p-4 pb-0 rounded-t-2xl bg-white">
+    <div className="relative w-full sm:max-w-xl flex flex-col p-4 pb-0 rounded-t-2xl bg-white">
       <div
         className={`fixed top-0 bottom-0 left-0 right-0 -z-10 bg-black ${
           openMenu
@@ -61,7 +61,7 @@ const Search = () => {
         <GoSearch className="text-xl text-gray-500 pointer-events-none" />
         <input
           ref={searchRef}
-          className="flex-1 outline-none bg-transparent cursor-pointer focus:cursor-text"
+          className="flex-1 w-full outline-none bg-transparent cursor-pointer focus:cursor-text"
           onFocus={() => setOpenMenu(true)}
         />
       </form>
