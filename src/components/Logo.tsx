@@ -4,7 +4,7 @@ const Logo = ({ style = "" }: { style?: string }) => {
   return (
     <Link
       to="/"
-      className={`font-playfair-display font-extrabold text-2xl ${style}`}
+      className={`font-playfair-display font-extrabold text-2xl w-fit ${style}`}
     >
       wanda.
     </Link>

@@ -8,15 +8,19 @@ export const trips = [
     to: "July 24, 2024",
     users: [
       {
+        username: "favesss (You)",
         image: "https://via.placeholder.com/50",
       },
       {
+        username: "fubara",
         image: "https://via.placeholder.com/50",
       },
       {
+        username: "tanny",
         image: "https://via.placeholder.com/50",
       },
       {
+        username: "vivian",
         image: "https://via.placeholder.com/50",
       },
     ],
@@ -30,15 +34,19 @@ export const trips = [
     to: "July 24, 2024",
     users: [
       {
+        username: "favesss (You)",
         image: "https://via.placeholder.com/50",
       },
       {
+        username: "fubara",
         image: "https://via.placeholder.com/50",
       },
       {
+        username: "tanny",
         image: "https://via.placeholder.com/50",
       },
       {
+        username: "vivian",
         image: "https://via.placeholder.com/50",
       },
     ],

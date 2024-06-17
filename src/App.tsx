@@ -12,6 +12,10 @@ import Profile from "./pages/home/profile";
 import ExploreMain from "./pages/home/explore/main";
 import ExplorePlace from "./pages/home/explore/place";
 import Trip from "./pages/home/trips/trip";
+import Hero from "./pages/hero";
+import EmailVerify from "./pages/auth/register/verify";
+import Password from "./pages/auth/register/password";
+import Welcome from "./pages/auth/register/welcome";
 
 function App() {
   return (
@@ -30,6 +34,7 @@ function App() {
       />
       <Router>
         <Routes>
+          <Route path="/" element={<Hero />} />
           <Route path="/" element={<Home />}>
             <Route path="explore" />
             <Route path="explore/:tag" element={<Explore />}>
@@ -44,7 +49,12 @@ function App() {
           </Route>
           <Route path="/auth" element={<Auth />}>
             <Route path="login" element={<Login />} />
-            <Route path="signup" element={<Register />} />
+            <Route path="register">
+              <Route index element={<Register />} />
+              <Route path="verify" element={<EmailVerify />} />
+              <Route path="password" element={<Password />} />
+              <Route path="welcome" element={<Welcome />} />
+            </Route>
             <Route path="forgot-password" element={<ForgotPassword />} />
           </Route>
         </Routes>

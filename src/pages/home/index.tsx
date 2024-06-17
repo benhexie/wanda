@@ -8,7 +8,7 @@ const Home = () => {
   const location = useLocation().pathname;
 
   useEffect(() => {
-    if (["/", "/explore"].includes(location)) navigate("/explore/all");
+    if (location === "/explore") navigate("/explore/all");
   }, [location, navigate]);
 
   return (

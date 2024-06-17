@@ -15,6 +15,7 @@ const TripCard = ({
   to: string;
   users: {
     image?: string;
+    username: string;
   }[];
 }) => {
   return (
@@ -38,7 +39,7 @@ const TripCard = ({
             <img
               key={index}
               src={user.image}
-              alt="Trip attendee image"
+              alt={`Image of ${user.username}`}
               className="w-6 h-6 object-cover rounded-full -ml-3 border-2 border-white"
             />
           ))}
