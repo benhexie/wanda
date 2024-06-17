@@ -16,6 +16,7 @@ import Hero from "./pages/hero";
 import EmailVerify from "./pages/auth/register/verify";
 import Password from "./pages/auth/register/password";
 import Welcome from "./pages/auth/register/welcome";
+import ProfileMain from "./pages/home/profile/main";
 
 function App() {
   return (
@@ -45,7 +46,9 @@ function App() {
               <Route path=":trip" element={<Trip />} />
             </Route>
             <Route path="crew" element={<Crew />} />
-            <Route path="profile" element={<Profile />} />
+            <Route path="profile" element={<Profile />}>
+              <Route index element={<ProfileMain />} />
+            </Route>
           </Route>
           <Route path="/auth" element={<Auth />}>
             <Route path="login" element={<Login />} />
