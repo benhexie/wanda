@@ -9,6 +9,8 @@ import Explore from "./pages/home/explore";
 import Trips from "./pages/home/trips";
 import Crew from "./pages/home/crew";
 import Profile from "./pages/home/profile";
+import ExploreMain from "./pages/home/explore/main";
+import ExplorePlace from "./pages/home/explore/place";
 
 function App() {
   return (
@@ -29,7 +31,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />}>
             <Route path="explore" />
-            <Route path="explore/:tag" element={<Explore />} />
+            <Route path="explore/:tag" element={<Explore />}>
+              <Route index element={<ExploreMain />} />
+              <Route path=":place" element={<ExplorePlace />} />
+            </Route>
             <Route path="trips" element={<Trips />} />
             <Route path="crew" element={<Crew />} />
             <Route path="profile" element={<Profile />} />

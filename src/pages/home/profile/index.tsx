@@ -1,66 +1,8 @@
 import { FaInstagram, FaTiktok } from "react-icons/fa";
 import { FaPinterestP } from "react-icons/fa6";
-import { placeTags } from "../../../utils/tags";
-import { ColorType } from "../../../types";
 import HomePlaceCard from "../../../components/HomePlaceCard";
-import { WiMoonAltNew, WiMoonAltThirdQuarter } from "react-icons/wi";
-
-const ProfileItem = ({
-  title,
-  image,
-  description,
-}: {
-  title: string;
-  image?: string;
-  description: string;
-  review?: boolean;
-}) => {
-  function formatTitle({ title: text }: { title: string }) {
-    const specialCharacter = "\\*\\*";
-    const regex = new RegExp(
-      `${specialCharacter}(.*?)${specialCharacter}`,
-      "g",
-    );
-
-    const formattedText = text.replace(
-      regex,
-      '<span class="font-semibold text-black">$1</span>',
-    );
-
-    return formattedText;
-  }
-
-  return (
-    <div className="flex flex-col gap-4 p-4 border border-gray-200 rounded-xl">
-      <div className="gap-4 flex items-center">
-        {image && (
-          <div className="rounded-full overflow-hidden">
-            <img
-              src={image}
-              alt="Profile image"
-              className="w-12 h-12 object-cover"
-            />
-          </div>
-        )}
-        <div className="flex-1">
-          <p
-            className="text-base line-clamp-2 text-gray-700"
-            dangerouslySetInnerHTML={{ __html: formatTitle({ title }) }}
-          />
-        </div>
-      </div>
-      <div className="flex gap-2">
-        {[1, 2, 3, 4, 5].map((i) => (
-          <WiMoonAltNew
-            key={i}
-            className="text-xl fill-secondary rounded-full"
-          />
-        ))}
-      </div>
-      <p className="text-base line-clamp-3 text-gray-700">{description}</p>
-    </div>
-  );
-};
+import { places } from "../../../utils/places";
+import { ReviewAndFeed } from "../../../components/ReviewAndFeed";
 
 const Profile = () => {
   return (
@@ -109,13 +51,13 @@ const Profile = () => {
         <div className="flex flex-col gap-4">
           <p className="text-xl font-semibold">Reviews</p>
           {reviews.map((review, index) => (
-            <ProfileItem key={index} {...review} />
+            <ReviewAndFeed key={index} {...review} />
           ))}
         </div>
         <div className="flex flex-col gap-4">
           <p className="text-xl font-semibold">Activity Feed</p>
           {activityFeed.map((feed, index) => (
-            <ProfileItem key={index} {...feed} />
+            <ReviewAndFeed key={index} {...feed} />
           ))}
         </div>
       </div>
@@ -124,93 +66,6 @@ const Profile = () => {
 };
 
 export default Profile;
-
-const places = [
-  {
-    _id: "1",
-    image: "https://placehold.co/200",
-    title: "Terra Kulture",
-    location: "Victoria Island, Lagos",
-    openingTime: "9 AM",
-    closingTime: "10 PM",
-    tags: [
-      {
-        name: "Restaurant",
-        color:
-          placeTags.find((tag) => tag.name === "Restaurant")?.color || "gray",
-      },
-      {
-        name: "Restaurant",
-        color:
-          placeTags.find((tag) => tag.name === "Restaurant")?.color || "gray",
-      },
-      {
-        name: "Restaurant",
-        color:
-          placeTags.find((tag) => tag.name === "Restaurant")?.color || "gray",
-      },
-    ],
-  },
-  {
-    _id: "2",
-    image: "https://placehold.co/200",
-    title: "Quilox Night Club",
-    location: "Victoria Island, Lagos",
-    openingTime: "9 AM",
-    closingTime: "10 PM",
-    tags: [
-      {
-        name: "Club",
-        color: placeTags.find((tag) => tag.name === "Club")?.color || "gray",
-      },
-    ],
-  },
-  {
-    _id: "3",
-    image: "https://placehold.co/200",
-    title: "Nike Art Gallery",
-    location: "Victoria Island, Lagos",
-    openingTime: "9 AM",
-    closingTime: "10 PM",
-    tags: [
-      {
-        name: "Hotel",
-        color: placeTags.find((tag) => tag.name === "Hotel")?.color || "gray",
-      },
-      {
-        name: "Art Gallery",
-        color:
-          placeTags.find((tag) => tag.name === "Art Gallery")?.color || "gray",
-      },
-    ],
-  },
-  {
-    _id: "4",
-    image: "https://placehold.co/200",
-    title: "Terra Kulture",
-    location: "Victoria Island, Lagos",
-    openingTime: "9 AM",
-    closingTime: "10 PM",
-    tags: [
-      {
-        name: "Restaurant",
-        color:
-          placeTags.find((tag) => tag.name === "Restaurant")?.color || "gray",
-      },
-    ],
-  },
-] as {
-  _id: string;
-  image: string;
-  title: string;
-  location: string;
-  openingTime: string;
-  closingTime: string;
-  tags: {
-    name: string;
-    color: ColorType;
-  }[];
-}[];
 
 const reviews = [
   {
