@@ -1,8 +1,9 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { FiPlus } from "react-icons/fi";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IoSearchOutline } from "react-icons/io5";
 import { PiPaperPlaneTilt } from "react-icons/pi";
+import { MdOutlineKeyboardBackspace } from "react-icons/md";
 
 const ChatBlock = ({
   _id,
@@ -38,9 +39,9 @@ const ChatBlock = ({
         alt={`Image of ${title}`}
         className="w-12 h-12 rounded-full object-cover"
       />
-      <div className="flex gap-4 items-end">
+      <div className="flex gap-4 items-end flex-1">
         <div className="flex flex-col gap-2 flex-1">
-          <p className="text-lg font-semibold">{title}</p>
+          <p className="text-lg font-semibold line-clamp-1">{title}</p>
           <p className="text-sm line-clamp-1">
             {username}: {lastMessage}
           </p>
@@ -55,6 +56,22 @@ const ChatBlock = ({
 
 const Crew = () => {
   const [search, setSearch] = useState("");
+  const location = useLocation().pathname;
+  const openChat = /\/crew\/chat\/.+/i.test(location);
+  const navigate = useNavigate();
+  const [width, setWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <>
@@ -70,7 +87,11 @@ const Crew = () => {
           </Link>
         </div>
         <div className="flex gap-8 flex-1">
-          <div className="w-full max-w-sm flex flex-col gap-8">
+          <div
+            className={`w-full max-w-full md:max-w-80 lg:max-w-sm flex flex-col gap-8 ${
+              openChat ? "hidden" : ""
+            }`}
+          >
             <div className="flex items-center px-4 rounded-full border border-gray-200 bg-gray-100 gap-4">
               <IoSearchOutline className="text-gray-500 text-xl" />
               <input
@@ -82,7 +103,7 @@ const Crew = () => {
               />
             </div>
             <div className="flex-1 relative">
-              <div className="flex flex-col absolute top-0 left-0 right-0 bottom-0 overflow-y-auto">
+              <div className="flex flex-col absolute top-0 left-0 right-0 bottom-0 overflow-y-auto no-scrollbar">
                 {chats.map((chat, index) => (
                   <ChatBlock
                     key={chat._id}
@@ -93,16 +114,28 @@ const Crew = () => {
               </div>
             </div>
           </div>
-          <div className="flex-1 flex flex-col gap-4">
+          <div
+            className={`flex-1 flex-col gap-4 flex ${
+              openChat ? "" : "hidden md:flex"
+            }`}
+          >
             <div className="flex items-center gap-4">
+              <button
+                onClick={() => navigate(-1)}
+                className="rounded-full flex justify-center items-center w-8 h-8"
+              >
+                <MdOutlineKeyboardBackspace className="text-xl text-black" />
+              </button>
               <img
                 src="https://via.placeholder.com/50"
                 alt="Chat image"
                 className="w-12 h-12 rounded-full object-cover"
               />
               <div className="flex flex-col gap-1 flex-1">
-                <h2 className="text-lg font-semibold">The One Lagos Weekend</h2>
-                <p className="text-sm">
+                <h2 className="text-lg font-semibold line-clamp-1">
+                  The One Lagos Weekend
+                </h2>
+                <p className="text-sm line-clamp-1">
                   fubara, tanny, vivian, ise_keenam, You
                 </p>
               </div>
@@ -133,6 +166,11 @@ const Crew = () => {
           </div>
         </div>
       </div>
+      {/\/crew\/new/i.test(location) && width < 768 && (
+        <div id="heyhey">
+          <Outlet />
+        </div>
+      )}
     </>
   );
 };
