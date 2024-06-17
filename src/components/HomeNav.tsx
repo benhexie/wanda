@@ -15,10 +15,12 @@ const NavItem = ({
   to = "#",
   text = "",
   Icon,
+  onClick,
 }: {
   to?: string;
   text: string;
   Icon: IconType;
+  onClick?: () => void;
 }) => {
   return (
     <NavLink
@@ -30,6 +32,7 @@ const NavItem = ({
         } hover:text-green-500 transition-colors duration-300`
       }
       to={to}
+      onClick={onClick}
     >
       <Icon className="text-xl" />
       <p className="text-base">{text}</p>
@@ -88,10 +91,30 @@ const HomeNav = () => {
             </button>
           </div>
           <div className="flex flex-col gap-4">
-            <NavItem text="Explore" Icon={AiOutlineCompass} to="/explore" />
-            <NavItem text="Trips" Icon={GrLocation} to="/trips" />
-            <NavItem text="Crew" Icon={HiOutlineUserGroup} to="/crew" />
-            <NavItem text="Profile" Icon={IoPersonOutline} to="/profile" />
+            <NavItem
+              text="Explore"
+              Icon={AiOutlineCompass}
+              to="/explore"
+              onClick={() => setOpenMenu(false)}
+            />
+            <NavItem
+              text="Trips"
+              Icon={GrLocation}
+              to="/trips"
+              onClick={() => setOpenMenu(false)}
+            />
+            <NavItem
+              text="Crew"
+              Icon={HiOutlineUserGroup}
+              to="/crew"
+              onClick={() => setOpenMenu(false)}
+            />
+            <NavItem
+              text="Profile"
+              Icon={IoPersonOutline}
+              to="/profile"
+              onClick={() => setOpenMenu(false)}
+            />
           </div>
         </div>
       </div>
