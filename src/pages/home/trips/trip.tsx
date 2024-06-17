@@ -13,7 +13,7 @@ const Trip = () => {
       onClick={() => navigate("/trips")}
     >
       <div
-        className="relative flex flex-col w-full max-w-lg overflow-y-auto gap-8 bg-white"
+        className="relative flex flex-col w-full max-w-xl overflow-y-auto gap-8 bg-white"
         onClick={(e) => e.stopPropagation()}
       >
         <button

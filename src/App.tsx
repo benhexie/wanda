@@ -17,6 +17,10 @@ import EmailVerify from "./pages/auth/register/verify";
 import Password from "./pages/auth/register/password";
 import Welcome from "./pages/auth/register/welcome";
 import ProfileMain from "./pages/home/profile/main";
+import NewTrip from "./pages/home/trips/new";
+import NewFriend from "./pages/home/crew/new";
+import NoChatSelected from "./pages/home/crew/main";
+import Chat from "./pages/home/crew/chat";
 
 function App() {
   return (
@@ -44,8 +48,13 @@ function App() {
             </Route>
             <Route path="trips" element={<Trips />}>
               <Route path=":trip" element={<Trip />} />
+              <Route path="new" element={<NewTrip />} />
             </Route>
-            <Route path="crew" element={<Crew />} />
+            <Route path="crew" element={<Crew />}>
+              <Route index element={<NoChatSelected />} />
+              <Route path="new" element={<NewFriend />} />
+              <Route path="chat/:chat" element={<Chat />} />
+            </Route>
             <Route path="profile" element={<Profile />}>
               <Route index element={<ProfileMain />} />
             </Route>

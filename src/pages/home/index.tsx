@@ -12,8 +12,8 @@ const Home = () => {
   }, [location, navigate]);
 
   return (
-    <Page>
-      <div className="w-full flex flex-col">
+    <Page style="flex-1">
+      <div className="w-full flex flex-col min-h-[calc(100vh-2rem)]">
         <HomeNav />
         <Outlet />
       </div>
