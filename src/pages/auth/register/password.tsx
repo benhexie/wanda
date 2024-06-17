@@ -58,6 +58,7 @@ const Password = () => {
         placeholder="Enter your password"
         value={password}
         setValue={setPassword}
+        type="password"
       />
     </AuthTemplate>
   );

@@ -8,6 +8,7 @@ const AuthInput = ({
   placeholder = "",
   label,
   labelStyle = "",
+  type = "text",
 }: {
   value: string;
   setValue: (text: string) => void;
@@ -16,6 +17,7 @@ const AuthInput = ({
   placeholder?: string;
   label?: string;
   labelStyle?: string;
+  type?: "text" | "password";
 }) => {
   return (
     <div className="flex flex-col gap-4">
@@ -27,7 +29,7 @@ const AuthInput = ({
       <div className="flex gap-2 bg-gray-100 rounded-md overflow-hidden">
         {leftIcon && <button>{leftIcon("text-gray-700")}</button>}
         <input
-          type="text"
+          type={type}
           value={value}
           onChange={(e) => setValue(e.target.value)}
           placeholder={placeholder}

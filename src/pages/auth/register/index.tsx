@@ -17,6 +17,8 @@ const Register = () => {
       next={() => {
         navigate("verify");
       }}
+      secondText="Take me to Sign in"
+      secondLink="/auth/login"
     >
       <AuthInput
         value={username}

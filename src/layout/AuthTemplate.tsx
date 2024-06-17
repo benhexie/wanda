@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { Link } from "react-router-dom";
 
 const AuthTemplate = ({
   title,
@@ -6,6 +7,8 @@ const AuthTemplate = ({
   image,
   nextText,
   next,
+  secondLink = "#",
+  secondText,
   children,
 }: {
   title: string;
@@ -13,6 +16,8 @@ const AuthTemplate = ({
   image: any;
   nextText: string;
   next: () => void;
+  secondText?: string;
+  secondLink?: string;
   children: ReactNode;
 }) => {
   return (
@@ -20,15 +25,34 @@ const AuthTemplate = ({
       <div className="flex-1 sm:flex-[0.5] flex flex-col order-2 sm:order-1">
         <div className="flex flex-col gap-8 max-w-96 py-12 -mt-4 sm:-mt-0">
           <h2 className="text-2xl font-semibold">{title}</h2>
-          {description && <h3 className="text-2xl font-semibold text-gray-500 -mt-2">{description}</h3>}
+          {description && (
+            <h3 className="text-2xl font-semibold text-gray-500 -mt-2">
+              {description}
+            </h3>
+          )}
           {children}
-          <button onClick={next} className="bg-secondary bg-opacity-20 p-4 text-base font-semibold text-secondary mt-12">
+          <button
+            onClick={next}
+            className="bg-secondary bg-opacity-20 p-4 text-base font-semibold text-secondary mt-12"
+          >
             {nextText}
           </button>
+          {secondText && (
+            <Link
+              to={secondLink}
+              className="text-base font-semibold text-secondary text-center"
+            >
+              {secondText}
+            </Link>
+          )}
         </div>
       </div>
       <div className="sm:flex-[0.5] sm:block order-1 sm:order-2">
-        <img src={image} alt="Auth image" className="w-full h-48 sm:h-full sm:min-h-96 max-h-[120rem] rounded-lg object-cover" />
+        <img
+          src={image}
+          alt="Auth image"
+          className="w-full h-48 sm:h-full sm:min-h-96 max-h-[120rem] rounded-lg object-cover"
+        />
       </div>
     </div>
   );
