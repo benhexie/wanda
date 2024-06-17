@@ -25,6 +25,7 @@ const Login = () => {
         setValue={setUsername}
         label="Username or Email Address"
         placeholder="e.g. chopLifeDuo"
+        name="username"
       />
       <AuthInput
         value={password}
@@ -32,6 +33,7 @@ const Login = () => {
         label="Password"
         placeholder="Enter your password"
         type="password"
+        name="password"
       />
     </AuthTemplate>
   );

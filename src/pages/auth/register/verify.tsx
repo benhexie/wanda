@@ -13,7 +13,7 @@ const EmailVerify = () => {
       image={require("../../../assets/images/rave.jpeg")}
       nextText="Continue"
       next={() => {
-        navigate("/auth/register/password")
+        navigate("/auth/register/password");
       }}
     >
       <AuthInput
@@ -21,6 +21,7 @@ const EmailVerify = () => {
         setValue={setCode}
         placeholder="x--x--x--x--x--x"
         label="Enter the verification code that was sent to the Email address provided."
+        name="code"
       />
     </AuthTemplate>
   );

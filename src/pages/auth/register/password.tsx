@@ -59,6 +59,7 @@ const Password = () => {
         value={password}
         setValue={setPassword}
         type="password"
+        name="password"
       />
     </AuthTemplate>
   );

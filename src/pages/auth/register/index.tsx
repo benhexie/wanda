@@ -25,12 +25,14 @@ const Register = () => {
         setValue={setUsername}
         label="Username"
         placeholder="e.g. chopLifeDuo"
+        name="username"
       />
       <AuthInput
         value={email}
         setValue={setEmail}
         label="Email address"
         placeholder="johnsmith@gmail.com"
+        name="email"
       />
     </AuthTemplate>
   );

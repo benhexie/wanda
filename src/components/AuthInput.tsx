@@ -9,6 +9,7 @@ const AuthInput = ({
   label,
   labelStyle = "",
   type = "text",
+  name,
 }: {
   value: string;
   setValue: (text: string) => void;
@@ -18,6 +19,7 @@ const AuthInput = ({
   label?: string;
   labelStyle?: string;
   type?: "text" | "password";
+  name?: string;
 }) => {
   return (
     <div className="flex flex-col gap-4">
@@ -34,6 +36,7 @@ const AuthInput = ({
           onChange={(e) => setValue(e.target.value)}
           placeholder={placeholder}
           className="px-4 py-3 flex-1 w-full bg-transparent"
+          name={name}
         />
         {rightIcon && <button>{rightIcon("")}</button>}
       </div>
