@@ -34,8 +34,9 @@ const TripCard = ({
       </div>
       <div className="flex justify-between">
         <div className="flex">
-          {users.map((user) => (
+          {users.map((user, index) => (
             <img
+              key={index}
               src={user.image}
               alt="Trip attendee image"
               className="w-6 h-6 object-cover rounded-full -ml-3 border-2 border-white"
