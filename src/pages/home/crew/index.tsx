@@ -89,7 +89,7 @@ const Crew = () => {
         <div className="flex gap-8 flex-1">
           <div
             className={`w-full max-w-full md:max-w-80 lg:max-w-sm flex flex-col gap-8 ${
-              openChat ? "hidden" : ""
+              openChat ? "hidden md:flex" : ""
             }`}
           >
             <div className="flex items-center px-4 rounded-full border border-gray-200 bg-gray-100 gap-4">
@@ -122,8 +122,8 @@ const Crew = () => {
             <div className="flex items-center gap-4">
               <button
                 onClick={() => navigate(-1)}
-                className="rounded-full flex justify-center items-center w-8 h-8"
-              >
+                className="rounded-full justify-center items-center w-8 h-8 md:hidden flex"
+              > 
                 <MdOutlineKeyboardBackspace className="text-xl text-black" />
               </button>
               <img
