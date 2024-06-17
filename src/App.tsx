@@ -11,6 +11,7 @@ import Crew from "./pages/home/crew";
 import Profile from "./pages/home/profile";
 import ExploreMain from "./pages/home/explore/main";
 import ExplorePlace from "./pages/home/explore/place";
+import Trip from "./pages/home/trips/trip";
 
 function App() {
   return (
@@ -35,7 +36,9 @@ function App() {
               <Route index element={<ExploreMain />} />
               <Route path=":place" element={<ExplorePlace />} />
             </Route>
-            <Route path="trips" element={<Trips />} />
+            <Route path="trips" element={<Trips />}>
+              <Route path=":trip" element={<Trip />} />
+            </Route>
             <Route path="crew" element={<Crew />} />
             <Route path="profile" element={<Profile />} />
           </Route>
