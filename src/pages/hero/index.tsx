@@ -33,17 +33,17 @@ const Hero = () => {
           </div>
           <div className="grid grid-cols-3 grid-rows-2 gap-2 sm:gap-8 mt-8">
             <img
-              src={require("../../assets/images/party.jpeg")}
+              src={require("../../assets/images/party.webp")}
               alt="Image of party"
               className="col-span-2 row-span-2 rounded-lg"
             />
             <img
-              src={require("../../assets/images/bar.jpeg")}
+              src={require("../../assets/images/bar.webp")}
               alt="Image of bar"
               className="col-span-1 row-span-1 rounded-lg"
             />
             <img
-              src={require("../../assets/images/beach.jpeg")}
+              src={require("../../assets/images/beach.webp")}
               alt="Image of beach"
               className="col-span-1 row-span-1 rounded-lg"
             />
@@ -70,7 +70,7 @@ const Hero = () => {
       </div>
       <div className="hidden lg:block lg:flex-[0.5] p-4 pl-0">
         <img
-          src={require("../../assets/images/arcade.jpeg")}
+          src={require("../../assets/images/arcade.webp")}
           alt="Image of arcade"
           className="rounded-r-lg w-full h-full object-cover"
         />

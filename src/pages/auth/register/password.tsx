@@ -24,7 +24,7 @@ const Password = () => {
   return (
     <AuthTemplate
       title="Create a secure password"
-      image={require("../../../assets/images/rave.jpeg")}
+      image={require("../../../assets/images/rave.webp")}
       nextText="Continue"
       next={() => {
         navigate("/auth/register/welcome");

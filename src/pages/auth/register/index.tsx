@@ -12,7 +12,7 @@ const Register = () => {
     <AuthTemplate
       title="Welcome to Wanda"
       description="Discover. Plan. Explore"
-      image={require("../../../assets/images/rave.jpeg")}
+      image={require("../../../assets/images/rave.webp")}
       nextText="Sign up"
       next={() => {
         navigate("verify");

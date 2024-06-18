@@ -10,7 +10,7 @@ const EmailVerify = () => {
   return (
     <AuthTemplate
       title="Just to be sure"
-      image={require("../../../assets/images/rave.jpeg")}
+      image={require("../../../assets/images/rave.webp")}
       nextText="Continue"
       next={() => {
         navigate("/auth/register/password");

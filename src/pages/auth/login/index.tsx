@@ -12,7 +12,7 @@ const Login = () => {
     <AuthTemplate
       title="Sign in"
       description="Get back to exploring"
-      image={require("../../../assets/images/beach.jpeg")}
+      image={require("../../../assets/images/beach.webp")}
       next={() => {
         navigate("/explore/all");
       }}
